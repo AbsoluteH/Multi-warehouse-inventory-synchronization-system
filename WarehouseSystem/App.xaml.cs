@@ -20,7 +20,7 @@ namespace WarehouseSystem
                 .ConfigureServices((context, services) =>
                 {
                     services.AddSingleton<MainWindowView>();
-                    services.AddSingleton<MainWindowViewModel>();
+                    services.AddTransient<MainWindowViewModel>();
                     // 注册其他服务...
                 })
                 .Build();

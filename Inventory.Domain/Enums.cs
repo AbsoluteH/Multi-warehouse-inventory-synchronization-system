@@ -25,4 +25,7 @@ namespace Inventory.Domain.Enums
     public class ProductOperationStateEnum
     {
     }
+    public class ProductAllocationRulesEnum
+    {
+    }
 }
