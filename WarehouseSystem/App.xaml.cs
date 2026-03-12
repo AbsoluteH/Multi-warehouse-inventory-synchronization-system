@@ -19,8 +19,19 @@ namespace WarehouseSystem
             _host = Host.CreateDefaultBuilder()
                 .ConfigureServices((context, services) =>
                 {
+                    //注册view
                     services.AddSingleton<MainWindowView>();
+                    services.AddSingleton<InventoryOperationView>();
+                    services.AddSingleton<LogViewerView>();
+                    services.AddSingleton<ProductManagementView>();
+                    services.AddSingleton<WarehouseSettingsView>();
+
+                    //注册viewmodel
                     services.AddTransient<MainWindowViewModel>();
+                    services.AddTransient<InventoryOperationViewModel>();
+                    services.AddTransient<LogViewerViewModel>();
+                    services.AddTransient<ProductManagementViewModel>();
+                    services.AddTransient<WarehouseSettingsViewModel>();
                     // 注册其他服务...
                 })
                 .Build();
