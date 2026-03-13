@@ -5,12 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Inventory.Domain.Entities
+namespace Inventory.Application.AppEntities
 {
-    /// <summary>
-    /// 日志记录类，用于记录库存变动的详细信息，包括变动前后数量、变动类型、操作人、操作时间等信息，以便后续查询和审计。
-    /// </summary>
-    public class InventoryLog
+    public class InventoryLogDTO
     {
         public int LogId { get; set; }
         public int WarehouseId { get; set; }
