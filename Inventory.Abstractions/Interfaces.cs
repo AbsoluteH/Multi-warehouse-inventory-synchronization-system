@@ -43,4 +43,17 @@ namespace Inventory.Abstractions
         Task SaveFileAsync(string fileText, string filePath, CancellationToken cancellationToken = default);
         Task<string> GetFileAsync(string filePath, CancellationToken cancellationToken = default);
     }
-}
+    public interface IInventoryService
+    {
+
+    }
+    public interface IProductService
+    {
+    }
+    public interface IWarehouseService
+    {
+    }
+    public interface ILogService
+    {
+    }
+    }
