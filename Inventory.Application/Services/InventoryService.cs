@@ -7,7 +7,7 @@ using Inventory.Abstractions;
 
 namespace Inventory.Application.Services
 {
-    public class InventoryService : IProductService
+    public class InventoryService : IInventoryService
     {
     }
 }

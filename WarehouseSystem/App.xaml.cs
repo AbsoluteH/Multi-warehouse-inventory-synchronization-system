@@ -5,6 +5,8 @@ using System.Data;
 using System.Windows;
 using WarehouseSystem.Views;
 using WarehouseSystem.ViewModels;
+using Inventory.Abstractions;
+using Inventory.Application.Services;
 
 namespace WarehouseSystem
 {
@@ -33,6 +35,10 @@ namespace WarehouseSystem
                     services.AddTransient<ProductManagementViewModel>();
                     services.AddTransient<WarehouseSettingsViewModel>();
                     // 注册其他服务...
+                    services.AddSingleton<IWarehouseService, WarehouseService>();
+                    services.AddSingleton<IProductService, ProductService>();
+                    services.AddSingleton<ILogService, LogService>();
+                    services.AddSingleton<IInventoryService, InventoryService>();
                 })
                 .Build();
         }
