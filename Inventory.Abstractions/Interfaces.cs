@@ -10,7 +10,7 @@ namespace Inventory.Abstractions
     /// 数据库
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IRepository<T> where T : class // 通常约束为聚合根
+    public interface IRepositoryService<T> where T : class // 通常约束为聚合根
     {
         Task<T> GetByIdAsync<TId>(TId id, CancellationToken cancellationToken = default);
         Task<IReadOnlyList<T>> ListAllAsync(CancellationToken cancellationToken = default);
