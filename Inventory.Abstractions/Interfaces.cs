@@ -24,8 +24,8 @@ namespace Inventory.Abstractions
     public interface ISerializer
     {
         string Serialize<T>(T obj);
-        T? Deserialize<T>(string json);
-        object? Deserialize(string json, Type type);
+        T? Deserialize<T>(string text);
+        object? Deserialize(string text, Type type);
     }
     /// <summary>
     /// 日志
@@ -37,5 +37,10 @@ namespace Inventory.Abstractions
         void LogWarning(string message, params object[] args);
         void LogError(string message, params object[] args);
         void LogDebug(string message, params object[] args);
+    }
+    public interface IFileStorageService
+    {
+        Task SaveFileAsync(string fileText, string filePath, CancellationToken cancellationToken = default);
+        Task<string> GetFileAsync(string filePath, CancellationToken cancellationToken = default);
     }
 }
