@@ -79,4 +79,23 @@ namespace Inventory.Abstractions
         Task<bool> AuthenticateAsync(string userName, string password, CancellationToken cancellationToken = default);
         Task<bool> LogoutAsync(string userName, CancellationToken cancellationToken = default);
     }
+    /// <summary>
+    /// 事件聚合器，提供发布-订阅模式的事件管理功能，可以用于组件之间的通信和事件传递，促进模块之间的解耦和协作
+    /// </summary>
+    public interface IEventAggregator
+    {
+        // 同步订阅
+        void Subscribe<TMessage>(Action<TMessage> action) where TMessage : class;
+        void Unsubscribe<TMessage>(Action<TMessage> action) where TMessage : class;
+
+        // 异步订阅
+        void SubscribeAsync<TMessage>(Func<TMessage, Task> asyncAction) where TMessage : class;
+        void UnsubscribeAsync<TMessage>(Func<TMessage, Task> asyncAction) where TMessage : class;
+
+        // 同步发布（即发即忘，后台执行）
+        void Publish<TMessage>(TMessage message) where TMessage : class;
+
+        // 异步发布（等待所有处理完成）
+        Task PublishAsync<TMessage>(TMessage message) where TMessage : class;
     }
+}
