@@ -72,9 +72,11 @@ namespace Inventory.Abstractions
     {
     }
     /// <summary>
-    /// 用户服务，提供用户管理相关的功能，如用户信息查询、用户权限管理等，可以与数据库交互来实现用户数据的持久化和管理
+    /// 登录服务，提供用户认证相关的功能，如用户登录、用户注销等，可以与数据库交互来实现用户数据的持久化和管理
     /// </summary>
-    public interface UserService
+    public interface IAuthenticationService
     {
+        Task<bool> AuthenticateAsync(string userName, string password, CancellationToken cancellationToken = default);
+        Task<bool> LogoutAsync(string userName, CancellationToken cancellationToken = default);
     }
     }

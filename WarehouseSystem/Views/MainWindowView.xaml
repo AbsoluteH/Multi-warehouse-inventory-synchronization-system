@@ -14,7 +14,25 @@
             <RowDefinition Height="50" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" />
+        <Grid Grid.Row="0">
+            <StackPanel Orientation="Horizontal">
+                <Label
+                    Width="100"
+                    Content="当前用户:"
+                    FontSize="20" />
+                <TextBlock Width="200" FontSize="20" />
+                <Button
+                    Width="100"
+                    Height="40"
+                    Command="{Binding LoginCommand}"
+                    Content="登录" />
+                <Button
+                    Width="100"
+                    Height="40"
+                    Command="{Binding LogoutAsyncCommand}"
+                    Content="登出" />
+            </StackPanel>
+        </Grid>
         <Grid Grid.Row="1" Margin="10,10,10,0" />
     </Grid>
 </Window>

@@ -12,17 +12,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WarehouseSystem.ViewModels;
 
 namespace WarehouseSystem.Views
 {
     /// <summary>
     /// LoginView.xaml 的交互逻辑
     /// </summary>
-    public partial class LoginView : UserControl
+    public partial class LoginView : Window
     {
-        public LoginView()
+        public LoginView(LoginViewModel model)
         {
             InitializeComponent();
+            DataContext = model;
         }
     }
 }

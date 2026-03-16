@@ -1,12 +1,13 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Inventory.Abstractions;
+using Inventory.Application.Services;
+using Inventory.Infrastructure;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Configuration;
 using System.Data;
 using System.Windows;
-using WarehouseSystem.Views;
 using WarehouseSystem.ViewModels;
-using Inventory.Abstractions;
-using Inventory.Application.Services;
+using WarehouseSystem.Views;
 
 namespace WarehouseSystem
 {
@@ -27,6 +28,7 @@ namespace WarehouseSystem
                     services.AddSingleton<LogViewerView>();
                     services.AddSingleton<ProductManagementView>();
                     services.AddSingleton<WarehouseSettingsView>();
+                    services.AddSingleton<LoginView>();
 
                     //注册viewmodel
                     services.AddTransient<MainWindowViewModel>();
@@ -34,11 +36,14 @@ namespace WarehouseSystem
                     services.AddTransient<LogViewerViewModel>();
                     services.AddTransient<ProductManagementViewModel>();
                     services.AddTransient<WarehouseSettingsViewModel>();
+                    services.AddTransient<LoginViewModel>();
                     // 注册其他服务...
                     services.AddSingleton<IWarehouseService, WarehouseService>();
                     services.AddSingleton<IProductService, ProductService>();
                     services.AddSingleton<ILogService, LogService>();
                     services.AddSingleton<IInventoryService, InventoryService>();
+                    services.AddSingleton<UserService>();
+                    services.AddSingleton<IAuthenticationService, AuthenticationService>();
                 })
                 .Build();
         }
