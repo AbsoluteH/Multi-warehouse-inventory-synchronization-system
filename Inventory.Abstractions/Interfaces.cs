@@ -38,22 +38,43 @@ namespace Inventory.Abstractions
         void LogError(string message, params object[] args);
         void LogDebug(string message, params object[] args);
     }
+    /// <summary>
+    /// 文件存储服务，提供文件的保存和读取功能，可以用于日志文件、配置文件等的管理
+    /// </summary>
     public interface IFileStorageService
     {
         Task SaveFileAsync(string fileText, string filePath, CancellationToken cancellationToken = default);
         Task<string> GetFileAsync(string filePath, CancellationToken cancellationToken = default);
     }
+    /// <summary>
+    /// 库存服务，提供库存管理相关的功能，如库存查询、库存调整等，可以与数据库交互来实现库存数据的持久化和管理
+    /// </summary>
     public interface IInventoryService
     {
 
     }
+    /// <summary>
+    /// 产品服务，提供产品管理相关的功能，如产品信息查询、产品分类管理等，可以与数据库交互来实现产品数据的持久化和管理
+    /// </summary>
     public interface IProductService
     {
     }
+    /// <summary>
+    /// 仓库服务，提供仓库管理相关的功能，如仓库信息查询、仓库布局管理等，可以与数据库交互来实现仓库数据的持久化和管理
+    /// </summary>
     public interface IWarehouseService
     {
     }
+    /// <summary>
+    /// 日志服务，提供日志记录相关的功能，如记录系统操作日志、错误日志等，可以与文件存储服务或数据库交互来实现日志数据的持久化和管理
+    /// </summary>
     public interface ILogService
+    {
+    }
+    /// <summary>
+    /// 用户服务，提供用户管理相关的功能，如用户信息查询、用户权限管理等，可以与数据库交互来实现用户数据的持久化和管理
+    /// </summary>
+    public interface UserService
     {
     }
     }

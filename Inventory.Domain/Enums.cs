@@ -8,6 +8,13 @@ using System.Threading.Tasks;
 namespace Inventory.Domain.Enums
 
 {
+    public enum UserRoleEnum
+    {
+        Admin = 1, // 管理员
+        Manager = 2, // 经理
+        Staff = 3, // 员工
+        Viewer = 4 // 观察者
+    }
     public enum ProductCategoryEnum
     {
         Electronics = 1, // 电子产品
