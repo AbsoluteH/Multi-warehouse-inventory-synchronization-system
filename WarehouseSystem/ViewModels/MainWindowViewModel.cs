@@ -10,21 +10,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using WarehouseSystem.Views;
+using System.Runtime.InteropServices; // 必须加
 
 namespace WarehouseSystem.ViewModels
 {
-    public partial class MainWindowViewModel : ObservableObject
+    public partial class MainWindowViewModel(IHost _host, UserService _userService) : ObservableObject
     {
-        private readonly IHost _host;
-        private UserService _userService;
         [ObservableProperty]
         private string userName;
 
-        public MainWindowViewModel (IHost host, UserService userService)
-        {
-            _host = host;
-            _userService = userService;
-        }
         [RelayCommand]
         private void Login()
         {
@@ -44,6 +38,9 @@ namespace WarehouseSystem.ViewModels
                 await _userService.UserLogoutAsync(UserName, cancellationToken);
                 MessageBox.Show("已注销");
             }
+
+            List<int> d = new(){ 1, 2, 3 };
+            Span<int> span = CollectionsMarshal.AsSpan(d);
         }
     }
 }

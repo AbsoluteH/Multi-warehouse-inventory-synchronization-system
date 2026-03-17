@@ -7,13 +7,8 @@ using System.Threading.Tasks;
 
 namespace Inventory.Application.Services
 {
-    public class UserService
+    public class UserService(IAuthenticationService _authenticationService)
     {
-        private IAuthenticationService _authenticationService;
-        public UserService(IAuthenticationService authenticationService)
-        {
-            _authenticationService = authenticationService;
-        }
         /// <summary>
         /// 用户登录方法，接受用户名和密码，并调用认证服务进行验证，返回登录结果（成功或失败）。可以在这里添加更多的登录逻辑，例如记录登录日志、处理多因素认证等。
         /// </summary>

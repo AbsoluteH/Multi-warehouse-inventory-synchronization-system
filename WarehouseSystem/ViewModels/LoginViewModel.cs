@@ -12,18 +12,13 @@ using System.Windows;
 
 namespace WarehouseSystem.ViewModels
 {
-    public partial class LoginViewModel : ObservableObject
+    public partial class LoginViewModel(UserService _userService) : ObservableObject
     {
-        private UserService _userService;
         [ObservableProperty]
         private string userName;
         [ObservableProperty]
         private string password;
 
-        public LoginViewModel(UserService userService)
-        {
-            _userService = userService;
-        }
 
         [RelayCommand]
         private async Task LoginAsync(CancellationToken cancellationToken)
