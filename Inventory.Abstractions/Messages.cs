@@ -6,5 +6,7 @@ using System.Threading.Tasks;
 
 namespace Inventory.Abstractions
 {
-    
+    public record UserLogInfo (string UserName); 
+    public record CloseLoginWindow (); 
+
 }

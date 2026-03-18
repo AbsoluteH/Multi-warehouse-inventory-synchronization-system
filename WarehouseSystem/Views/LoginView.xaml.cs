@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Inventory.Abstractions;
+using Inventory.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,10 +23,17 @@ namespace WarehouseSystem.Views
     /// </summary>
     public partial class LoginView : Window
     {
-        public LoginView(LoginViewModel model)
+        public LoginView(LoginViewModel model, EventAggregator eventAggregator)
         {
             InitializeComponent();
             DataContext = model;
+
+            eventAggregator.Subscribe<CloseLoginWindow>(CloseWindow);
+        }
+
+        private void CloseWindow(CloseLoginWindow window)
+        {
+            this.Close();
         }
     }
 }

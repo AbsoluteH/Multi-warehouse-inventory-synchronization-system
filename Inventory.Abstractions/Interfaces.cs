@@ -76,6 +76,7 @@ namespace Inventory.Abstractions
     /// </summary>
     public interface IAuthenticationService
     {
+        bool Authenticate(string userName, string password);
         Task<bool> AuthenticateAsync(string userName, string password, CancellationToken cancellationToken = default);
         Task<bool> LogoutAsync(string userName, CancellationToken cancellationToken = default);
     }

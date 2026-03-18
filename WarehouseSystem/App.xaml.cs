@@ -42,8 +42,10 @@ namespace WarehouseSystem
                     services.AddSingleton<IProductService, ProductService>();
                     services.AddSingleton<ILogService, LogService>();
                     services.AddSingleton<IInventoryService, InventoryService>();
-                    services.AddSingleton<UserService>();
                     services.AddSingleton<IAuthenticationService, AuthenticationService>();
+
+                    services.AddSingleton<EventAggregator>();
+                    services.AddSingleton<UserService>();
                 })
                 .Build();
         }
