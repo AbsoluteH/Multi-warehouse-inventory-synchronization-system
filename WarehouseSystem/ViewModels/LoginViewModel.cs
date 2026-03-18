@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using Inventory.Abstractions;
 using Inventory.Application.Services;
 using Inventory.Infrastructure;
@@ -29,6 +30,7 @@ namespace WarehouseSystem.ViewModels
             if (success)
             {
                 MessageBox.Show("登录成功！");
+                WeakReferenceMessenger.Default.Send(new CloseLoginWindow());
             }
             else
             {

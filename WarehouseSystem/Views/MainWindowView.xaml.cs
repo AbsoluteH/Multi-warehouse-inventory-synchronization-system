@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.Messaging;
+using Inventory.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,18 @@ namespace WarehouseSystem.Views
         public MainWindowView()
         {
             InitializeComponent();
+
+            Closing += (s, e) =>
+            {
+                e.Cancel = true;
+                CloseOtherWindow();
+                Close();
+            };
+        }
+
+        private void CloseOtherWindow()
+        {
+            WeakReferenceMessenger.Default.Send(new CloseAllWindow());
         }
     }
 }

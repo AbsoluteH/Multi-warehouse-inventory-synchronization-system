@@ -1,4 +1,5 @@
-﻿using Inventory.Abstractions;
+﻿using CommunityToolkit.Mvvm.Messaging;
+using Inventory.Abstractions;
 using Inventory.Infrastructure;
 using System;
 using System.Collections.Generic;
@@ -28,11 +29,9 @@ namespace WarehouseSystem.Views
             InitializeComponent();
             DataContext = model;
 
-        }
+            WeakReferenceMessenger.Default.Register<CloseLoginWindow>(this, (_,_) => this.Hide());
+            WeakReferenceMessenger.Default.Register<CloseAllWindow>(this, (_, _) => this.Close());
 
-        private void CloseWindow(CloseLoginWindow window)
-        {
-            this.Close();
         }
     }
 }

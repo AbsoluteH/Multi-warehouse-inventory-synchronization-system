@@ -8,5 +8,6 @@ namespace Inventory.Abstractions
 {
     public record UserLogInfo (string UserName); 
     public record CloseLoginWindow (); 
+    public record CloseAllWindow (); 
 
 }
