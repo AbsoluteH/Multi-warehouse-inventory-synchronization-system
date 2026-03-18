@@ -23,12 +23,11 @@ namespace WarehouseSystem.Views
     /// </summary>
     public partial class LoginView : Window
     {
-        public LoginView(LoginViewModel model, EventAggregator eventAggregator)
+        public LoginView(LoginViewModel model)
         {
             InitializeComponent();
             DataContext = model;
 
-            eventAggregator.Subscribe<CloseLoginWindow>(CloseWindow);
         }
 
         private void CloseWindow(CloseLoginWindow window)

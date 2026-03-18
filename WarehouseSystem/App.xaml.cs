@@ -44,7 +44,6 @@ namespace WarehouseSystem
                     services.AddSingleton<IInventoryService, InventoryService>();
                     services.AddSingleton<IAuthenticationService, AuthenticationService>();
 
-                    services.AddSingleton<EventAggregator>();
                     services.AddSingleton<UserService>();
                 })
                 .Build();

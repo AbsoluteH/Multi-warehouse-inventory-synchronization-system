@@ -14,7 +14,7 @@ using System.Windows;
 
 namespace WarehouseSystem.ViewModels
 {
-    public partial class LoginViewModel(UserService _userService, EventAggregator _eventAggregator) : ObservableObject
+    public partial class LoginViewModel(UserService _userService) : ObservableObject
     {
         [ObservableProperty]
         private string userName;
@@ -29,8 +29,6 @@ namespace WarehouseSystem.ViewModels
             if (success)
             {
                 MessageBox.Show("登录成功！");
-                _eventAggregator.Publish(new UserLogInfo(UserName));
-                _eventAggregator.Publish(new CloseLoginWindow());
             }
             else
             {
