@@ -37,7 +37,7 @@ namespace WarehouseSystem.Views
 
         private void CloseOtherWindow()
         {
-            WeakReferenceMessenger.Default.Send(new CloseAllWindow());
+            WeakReferenceMessenger.Default.Send(new CloseAllWindowMsg());
         }
     }
 }

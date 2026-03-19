@@ -26,7 +26,7 @@ namespace WarehouseSystem.ViewModels
 
         public void Load()
         {
-            WeakReferenceMessenger.Default.Register<UserLogInfo>(this, (_, u) => UserName = u.UserName);
+            WeakReferenceMessenger.Default.Register<UserLogInfoMsg>(this, (_, u) => UserName = u.UserName);
         }
 
         [RelayCommand]
@@ -56,6 +56,21 @@ namespace WarehouseSystem.ViewModels
         private void GotoProduct()
         {
             MyContentControl = _host.Services.GetRequiredService<ProductManagementView>();
+        }
+        [RelayCommand]
+        private void GotoInventory()
+        {
+            MyContentControl = _host.Services.GetRequiredService<InventoryOperationView>();
+        }
+        [RelayCommand]
+        private void GotoLogViewer()
+        {
+            MyContentControl = _host.Services.GetRequiredService<LogViewerView>();
+        }
+        [RelayCommand]
+        private void GotoWarehouse()
+        {
+            MyContentControl = _host.Services.GetRequiredService<WarehouseSettingsView>();
         }
     }
 }

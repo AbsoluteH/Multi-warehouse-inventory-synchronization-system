@@ -53,16 +53,19 @@
                         Width="40"
                         Height="35"
                         Margin="0,0,20,0"
+                        Command="{Binding GotoInventoryCommand}"
                         Content="仓库" />
                     <Button
                         Width="40"
                         Height="35"
                         Margin="0,0,20,0"
+                        Command="{Binding GotoLogViewerCommand}"
                         Content="库存" />
                     <Button
                         Width="40"
                         Height="35"
                         Margin="0,0,20,0"
+                        Command="{Binding GotoWarehouseCommand}"
                         Content="日志" />
                 </StackPanel>
             </Grid>

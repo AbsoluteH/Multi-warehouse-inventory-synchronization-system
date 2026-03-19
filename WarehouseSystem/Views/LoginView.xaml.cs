@@ -29,8 +29,8 @@ namespace WarehouseSystem.Views
             InitializeComponent();
             DataContext = model;
 
-            WeakReferenceMessenger.Default.Register<CloseLoginWindow>(this, (_,_) => this.Hide());
-            WeakReferenceMessenger.Default.Register<CloseAllWindow>(this, (_, _) => this.Close());
+            WeakReferenceMessenger.Default.Register<CloseLoginWindowMsg>(this, (_,_) => this.Hide());
+            WeakReferenceMessenger.Default.Register<CloseAllWindowMsg>(this, (_, _) => this.Close());
 
         }
     }

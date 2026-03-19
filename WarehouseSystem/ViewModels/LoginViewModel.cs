@@ -30,8 +30,8 @@ namespace WarehouseSystem.ViewModels
             if (success)
             {
                 MessageBox.Show("登录成功！");
-                WeakReferenceMessenger.Default.Send(new CloseLoginWindow());
-                WeakReferenceMessenger.Default.Send(new UserLogInfo(UserName));
+                WeakReferenceMessenger.Default.Send(new CloseLoginWindowMsg());
+                WeakReferenceMessenger.Default.Send(new UserLogInfoMsg(UserName));
             }
             else
             {

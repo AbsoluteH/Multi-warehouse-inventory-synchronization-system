@@ -25,6 +25,7 @@ namespace WarehouseSystem.Views
         {
             InitializeComponent();
             DataContext = model;
+            ((ProductManagementViewModel)DataContext).Load();
         }
     }
 }
