@@ -1,16 +1,18 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
+using Inventory.Abstractions;
 using Inventory.Application.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices; // 必须加
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using WarehouseSystem.Views;
-using System.Runtime.InteropServices; // 必须加
 
 namespace WarehouseSystem.ViewModels
 {
@@ -18,6 +20,11 @@ namespace WarehouseSystem.ViewModels
     {
         [ObservableProperty]
         private string userName;
+
+        public void Load()
+        {
+            WeakReferenceMessenger.Default.Register<UserLogInfo>(this, (_, u) => UserName = u.UserName);
+        }
 
         [RelayCommand]
         private void Login()

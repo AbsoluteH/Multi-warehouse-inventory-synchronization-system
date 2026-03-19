@@ -20,7 +20,10 @@
                     Width="100"
                     Content="当前用户:"
                     FontSize="20" />
-                <TextBlock Width="200" FontSize="20" />
+                <TextBlock
+                    Width="200"
+                    FontSize="20"
+                    Text="{Binding UserName}" />
                 <Button
                     Width="100"
                     Height="40"

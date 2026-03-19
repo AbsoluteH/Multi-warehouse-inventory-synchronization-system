@@ -52,7 +52,6 @@ namespace WarehouseSystem
         {
             await _host.StartAsync();
             var mainWindow = _host.Services.GetRequiredService<MainWindowView>();
-            mainWindow.DataContext = _host.Services.GetRequiredService<MainWindowViewModel>();
             mainWindow.Show();
             base.OnStartup(e);
         }

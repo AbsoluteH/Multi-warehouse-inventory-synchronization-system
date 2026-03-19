@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WarehouseSystem.ViewModels;
 
 namespace WarehouseSystem.Views
 {
@@ -21,10 +22,11 @@ namespace WarehouseSystem.Views
     /// </summary>
     public partial class MainWindowView : Window
     {
-        public MainWindowView()
+        public MainWindowView(MainWindowViewModel model)
         {
             InitializeComponent();
-
+            DataContext = model;
+            ((MainWindowViewModel)DataContext).Load();
             Closing += (s, e) =>
             {
                 e.Cancel = true;
