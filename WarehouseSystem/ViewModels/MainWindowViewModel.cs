@@ -12,6 +12,7 @@ using System.Runtime.InteropServices; // 必须加
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using WarehouseSystem.Views;
 
 namespace WarehouseSystem.ViewModels
@@ -20,6 +21,8 @@ namespace WarehouseSystem.ViewModels
     {
         [ObservableProperty]
         private string userName;
+        [ObservableProperty]
+        private UserControl myContentControl;
 
         public void Load()
         {
@@ -48,6 +51,11 @@ namespace WarehouseSystem.ViewModels
 
             List<int> d = new(){ 1, 2, 3 };
             Span<int> span = CollectionsMarshal.AsSpan(d);
+        }
+        [RelayCommand]
+        private void GotoProduct()
+        {
+            MyContentControl = _host.Services.GetRequiredService<ProductManagementView>();
         }
     }
 }
