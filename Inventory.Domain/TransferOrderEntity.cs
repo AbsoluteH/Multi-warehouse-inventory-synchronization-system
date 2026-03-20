@@ -10,7 +10,7 @@ namespace Inventory.Domain.Entities
     /// <summary>
     /// 调拨单实体类，表示仓库之间调拨产品的订单信息，包括调出仓库、调入仓库、产品ID、调拨数量、调拨状态、调拨规则、调拨时间和完成时间等属性。
     /// </summary>
-    public class TransferOrder
+    public class TransferOrderEntity
     {
         public int Id { get; set; }
         /// <summary>

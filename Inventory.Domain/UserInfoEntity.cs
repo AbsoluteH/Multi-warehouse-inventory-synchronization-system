@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Inventory.Domain
 {
-    public class UserInfo
+    public class UserInfoEntity
     {
         public int Id { get; set; } // 用户ID
         public string Username { get; set; } // 用户名

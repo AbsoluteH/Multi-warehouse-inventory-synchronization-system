@@ -18,7 +18,7 @@ namespace WarehouseSystem.ViewModels
     {
         private ProductDTO newProductDTO;
         [ObservableProperty]
-        private List<ProductDTO> productsDTOs;
+        private ObservableCollection<ProductDTO> productsDTOs;
         [ObservableProperty]
         private int productID;
         [ObservableProperty]
@@ -30,35 +30,49 @@ namespace WarehouseSystem.ViewModels
         [ObservableProperty]
         private ObservableCollection<string> productSizes;
         [ObservableProperty]
-        private string productSize;
+        private ProductSizeEnum productSize;
         [ObservableProperty]
         private ObservableCollection<string> productColors;
         [ObservableProperty]
-        private string productColor;
+        private ProductColorEnum productColor;
         [ObservableProperty]
         private ObservableCollection<string> productCategorys;
         [ObservableProperty]
-        private string productCategory;
+        private ProductCategoryEnum productCategory;
         [ObservableProperty]
         private decimal productPrice;
         public void Load()
         {
+            newProductDTO = new();
             var list = Enum.GetValues<ProductSizeEnum>().Select(e => EnumTranslateClass.GetEnumDescription(e)).ToList();
             ProductSizes = new ObservableCollection<string>(list);
             list = Enum.GetValues<ProductColorEnum>().Select(e => EnumTranslateClass.GetEnumDescription(e)).ToList();
             ProductColors = new ObservableCollection<string>(list);
             list = Enum.GetValues<ProductCategoryEnum>().Select(e => EnumTranslateClass.GetEnumDescription(e)).ToList();
             ProductCategorys = new ObservableCollection<string>(list);
+
+            var products = _productService.GetItems();
         }
         [RelayCommand]
         private void AddProduct()
         {
-
+            newProductDTO.Id = ProductID;
+            newProductDTO.Name = ProductName;
+            newProductDTO.Weight = ProductWeight;
+            newProductDTO.Volume = ProductVolume;
+            newProductDTO.Size = ProductSize;
+            newProductDTO.Price = ProductPrice;
         }
         [RelayCommand]
         private void UpdateProduct()
         {
-
+            newProductDTO.Id = ProductID;
+            newProductDTO.Name = ProductName;
+            newProductDTO.Weight = ProductWeight;
+            newProductDTO.Volume = ProductVolume;
+            newProductDTO.Size = ProductSize;
+            newProductDTO.Price = ProductPrice;
         }
+
     }
 }

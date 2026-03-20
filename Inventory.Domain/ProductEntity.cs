@@ -10,7 +10,7 @@ namespace Inventory.Domain.Entities
     /// <summary>
     /// 商品实体类，包含商品的基本属性，如ID、名称、重量、体积、尺寸、颜色、类别和价格等。
     /// </summary>
-    public class Product
+    public class ProductEntity
     {
         public int Id { get; set; }
         /// <summary>

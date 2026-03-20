@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Inventory.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -51,19 +52,30 @@ namespace Inventory.Abstractions
     /// </summary>
     public interface IInventoryService
     {
-
+        public void Add(InventoryEntity inventory);
+        public void Update(InventoryEntity inventory);
+        public InventoryEntity GetItem();
+        public IEnumerable<InventoryEntity> GetItems();
     }
     /// <summary>
     /// 产品服务，提供产品管理相关的功能，如产品信息查询、产品分类管理等，可以与数据库交互来实现产品数据的持久化和管理
     /// </summary>
     public interface IProductService
     {
+        public void Add(ProductEntity product);
+        public void Update(ProductEntity product);
+        public ProductEntity GetItem();
+        public IEnumerable<ProductEntity> GetItems();
     }
     /// <summary>
     /// 仓库服务，提供仓库管理相关的功能，如仓库信息查询、仓库布局管理等，可以与数据库交互来实现仓库数据的持久化和管理
     /// </summary>
     public interface IWarehouseService
     {
+        public void Add(WarehouseEntity warehouse);
+        public void Update(WarehouseEntity warehouse);
+        public WarehouseEntity GetItem();
+        public IEnumerable<WarehouseEntity> GetItems();
     }
     /// <summary>
     /// 日志服务，提供日志记录相关的功能，如记录系统操作日志、错误日志等，可以与文件存储服务或数据库交互来实现日志数据的持久化和管理
