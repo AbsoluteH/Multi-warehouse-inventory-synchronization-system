@@ -22,21 +22,6 @@ namespace WarehouseSystem
             _host = Host.CreateDefaultBuilder()
                 .ConfigureServices((context, services) =>
                 {
-                    //注册view
-                    services.AddSingleton<MainWindowView>();
-                    services.AddSingleton<InventoryOperationView>();
-                    services.AddSingleton<LogViewerView>();
-                    services.AddSingleton<ProductManagementView>();
-                    services.AddSingleton<WarehouseSettingsView>();
-                    services.AddSingleton<LoginView>();
-
-                    //注册viewmodel
-                    services.AddTransient<MainWindowViewModel>();
-                    services.AddTransient<InventoryOperationViewModel>();
-                    services.AddTransient<LogViewerViewModel>();
-                    services.AddTransient<ProductManagementViewModel>();
-                    services.AddTransient<WarehouseSettingsViewModel>();
-                    services.AddTransient<LoginViewModel>();
                     // 注册其他服务...
                     services.AddSingleton<IWarehouseService, WarehouseService>();
                     services.AddSingleton<IProductService, ProductService>();
@@ -45,6 +30,20 @@ namespace WarehouseSystem
                     services.AddSingleton<IAuthenticationService, AuthenticationService>();
 
                     services.AddSingleton<UserService>();
+                    //注册viewmodel
+                    services.AddTransient<MainWindowViewModel>();
+                    services.AddTransient<InventoryOperationViewModel>();
+                    services.AddTransient<LogViewerViewModel>();
+                    services.AddTransient<ProductManagementViewModel>();
+                    services.AddTransient<WarehouseSettingsViewModel>();
+                    services.AddTransient<LoginViewModel>();
+                    //注册view
+                    services.AddSingleton<MainWindowView>();
+                    services.AddSingleton<InventoryOperationView>();
+                    services.AddSingleton<LogViewerView>();
+                    services.AddSingleton<ProductManagementView>();
+                    services.AddSingleton<WarehouseSettingsView>();
+                    services.AddSingleton<LoginView>();
                 })
                 .Build();
         }

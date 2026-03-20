@@ -5,18 +5,110 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:WarehouseSystem.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="450"
+    d:DesignHeight="600"
     d:DesignWidth="800"
     mc:Ignorable="d">
     <Grid Background="Transparent">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="250" />
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0" Margin="15">
             <DataGrid ItemsSource="{Binding ProductsDTOs}" />
         </Grid>
-        <Grid Grid.Column="1" />
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="100" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <StackPanel>
+                    <StackPanel
+                        Margin="0,30,0,10"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+                        <Label Width="100" Content="商品ID: " />
+                        <TextBox Width="100" Text="{Binding ProductID}" />
+                    </StackPanel>
+                    <StackPanel
+                        Margin="0,10"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+                        <Label Width="100" Content="商品名称: " />
+                        <TextBox Width="100" Text="{Binding ProductName}" />
+                    </StackPanel>
+                    <StackPanel
+                        Margin="0,10"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+                        <Label Width="100" Content="商品重量: " />
+                        <TextBox Width="100" Text="{Binding ProductWeight}" />
+                    </StackPanel>
+                    <StackPanel
+                        Margin="0,10"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+                        <Label Width="100" Content="商品体积: " />
+                        <TextBox Width="100" Text="{Binding ProductVolume}" />
+                    </StackPanel>
+                    <StackPanel
+                        Margin="0,10"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+                        <Label Width="100" Content="商品尺寸: " />
+                        <ComboBox
+                            Width="100"
+                            ItemsSource="{Binding ProductSizes}"
+                            SelectedItem="{Binding ProductSize}" />
+                    </StackPanel>
+                    <StackPanel
+                        Margin="0,10"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+                        <Label Width="100" Content="商品颜色: " />
+                        <ComboBox
+                            Width="100"
+                            ItemsSource="{Binding ProductColors}"
+                            SelectedItem="{Binding ProductColor}" />
+                    </StackPanel>
+                    <StackPanel
+                        Margin="0,10"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+                        <Label Width="100" Content="商品类别: " />
+                        <ComboBox
+                            Width="100"
+                            ItemsSource="{Binding ProductCategorys}"
+                            SelectedItem="{Binding ProductCategory}" />
+                    </StackPanel>
+                    <StackPanel
+                        Margin="0,10"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+                        <Label Width="100" Content="商品价格: " />
+                        <TextBox Width="100" Text="{Binding productPrice}" />
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+                <StackPanel
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+                    <Button
+                        Width="100"
+                        Height="50"
+                        Command="{Binding AddProductCommand}"
+                        Content="添加" />
+                    <Button
+                        Width="100"
+                        Height="50"
+                        Margin="20,0,0,0"
+                        Command="{Binding UpdateProductCommand}"
+                        Content="修改" />
+                </StackPanel>
+            </Grid>
+        </Grid>
     </Grid>
 
 </UserControl>

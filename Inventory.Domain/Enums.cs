@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,27 +28,43 @@ namespace Inventory.Domain.Enums
     }
     public enum ProductColorEnum
     {
+        [Description("red")]
         red = 1,
+        [Description("blue")]
         blue = 2,
+        [Description("green")]
         green = 3,
+        [Description("yellow")]
         yellow = 4,
+        [Description("black")]
         black = 5,
+        [Description("white")]
         white = 6
     }
     public enum ProductSizeEnum
     {
+        [Description("mini")]
         mini = 1,
+        [Description("small")]
         small = 2,
+        [Description("medium")]
         medium = 3,
+        [Description("large")]
         large = 4,
+        [Description("extraLarge")]
         extraLarge = 5
     }
     public enum WarehouseTypeEnum
     {
+        [Description("DistributionCenter")]
         DistributionCenter = 1,
+        [Description("RegionalWarehouse")]
         RegionalWarehouse = 2,
+        [Description("LocalWarehouse")]
         LocalWarehouse = 3,
+        [Description("CrossDockingFacility")]
         CrossDockingFacility = 4,
+        [Description("FulfillmentCenter")]
         FulfillmentCenter = 5
     }
     public enum ChangeTypeEnum
@@ -65,5 +83,15 @@ namespace Inventory.Domain.Enums
     public enum ProductAllocationRulesEnum
     {
         None = 0,
+    }
+    public class EnumTranslateClass()
+    {
+        // 获取枚举的 [Description] 特性文本
+        public static string GetEnumDescription(Enum value)
+        {
+            var fieldInfo = value.GetType().GetField(value.ToString());
+            var attribute = fieldInfo.GetCustomAttribute<DescriptionAttribute>();
+            return attribute?.Description ?? value.ToString();
+        }
     }
 }
