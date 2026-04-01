@@ -12,18 +12,18 @@ namespace Inventory.Application.Services
     public class ProductService : IProductService
     {
         private readonly IEnumerable<ProductEntity> _products;
-        public void Add(ProductEntity productDTO)
+        public void Add(ProductEntity product)
         {
 
         }
-        public void Update(ProductEntity productDTO)
+        public void Update(ProductEntity product)
         {
 
         }
         public ProductEntity GetItem()
         {
-            ProductEntity productDTO = new ();
-            return productDTO;
+            ProductEntity product = new ();
+            return product;
         }
         public IEnumerable<ProductEntity> GetItems()
         {

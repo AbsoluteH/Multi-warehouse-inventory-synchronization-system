@@ -11,23 +11,23 @@ namespace Inventory.Application.Services
 {
     public class InventoryService : IInventoryService
     {
-        private readonly List<InventoryDTO> _inventoryDTOs;
-        public void AddInventory(InventoryDTO inventoryDTO)
+        private readonly List<InventoryEntity> _inventorys;
+        public void Add(InventoryEntity inventory)
         {
 
         }
-        public void UpdateInventory(InventoryDTO productDTO)
+        public void Update(InventoryEntity product)
         {
 
         }
-        public InventoryDTO GetInventoryDTO()
+        public InventoryEntity GetItem()
         {
-            InventoryDTO inventoryDTO = new ();
-            return inventoryDTO;
+            InventoryEntity inventory = new ();
+            return inventory;
         }
-        public List<InventoryDTO> GetProducts()
+        public IEnumerable<InventoryEntity> GetItems()
         {
-            return _inventoryDTOs;
+            return _inventorys;
         }
     }
 }

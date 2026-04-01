@@ -5,28 +5,29 @@ using System.Text;
 using System.Threading.Tasks;
 using Inventory.Abstractions;
 using Inventory.Application.AppEntities;
+using Inventory.Domain.Entities;
 
 namespace Inventory.Application.Services
 {
     public class WarehouseService : IWarehouseService
     {
-        private  readonly List<WarehouseDTO> _warehouseDTOs;
-        public void AddWarehouse (WarehouseDTO warehouseDTO)
+        private  readonly List<WarehouseEntity> _warehouses;
+        public void Add (WarehouseEntity warehouse)
         {
 
         }
-        public void UpdateWarehouse(WarehouseDTO warehouseDTO)
+        public void Update(WarehouseEntity warehouse)
         {
 
         }
-        public WarehouseDTO GetWarehouse()
+        public WarehouseEntity GetItem()
         {
-            WarehouseDTO warehouseDTO = new();
-            return warehouseDTO;
+            WarehouseEntity warehouse = new();
+            return warehouse;
         }
-        public List<WarehouseDTO> GetWarehouseDTOs()
+        public IEnumerable<WarehouseEntity> GetItems()
         {
-            return _warehouseDTOs;
+            return _warehouses;
         }
     }
 }
