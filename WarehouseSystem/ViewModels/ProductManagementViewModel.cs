@@ -62,6 +62,8 @@ namespace WarehouseSystem.ViewModels
             newProductDTO.Volume = ProductVolume;
             newProductDTO.Size = ProductSize;
             newProductDTO.Price = ProductPrice;
+
+            
         }
         [RelayCommand]
         private void UpdateProduct()

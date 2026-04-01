@@ -9,12 +9,11 @@ using System.Threading.Tasks;
 
 namespace Inventory.Application.Services
 {
-    public class ProductService : IProductService
+    public class ProductService(IRepositoryService<ProductEntity> repositoryService) : IProductService
     {
         private readonly IEnumerable<ProductEntity> _products;
         public void Add(ProductEntity product)
         {
-
         }
         public void Update(ProductEntity product)
         {

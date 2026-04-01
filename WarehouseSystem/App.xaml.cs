@@ -1,5 +1,6 @@
 ﻿using Inventory.Abstractions;
 using Inventory.Application.Services;
+using Inventory.Domain.Entities;
 using Inventory.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -28,6 +29,8 @@ namespace WarehouseSystem
                     services.AddSingleton<ILogService, LogService>();
                     services.AddSingleton<IInventoryService, InventoryService>();
                     services.AddSingleton<IAuthenticationService, AuthenticationService>();
+
+                    services.AddSingleton<IRepositoryService<ProductEntity>, ProRepositoryService>();
 
                     services.AddSingleton<UserService>();
                     //注册viewmodel
